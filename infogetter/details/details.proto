@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "google.golang.org/grpc/examples/infogetter/details";
+
+package details;
+
+message Request {
+    string name = 1;
+    string ID = 2;
+}
+
+message Response {
+    string creds = 1;
+}
+
+service DetailGetter {
+    rpc GetDetails (Request) returns (Response) {}
+    rpc GetStreamDetails (stream Request) returns (stream Response) {}
+}
